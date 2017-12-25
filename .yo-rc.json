@@ -1,0 +1,9 @@
+{
+  "generator-node": {
+    "promptValues": {
+      "authorName": "José Luis Vizcaíno Martínez",
+      "authorEmail": "jlvizmar@gmail.com",
+      "authorUrl": "xjoshx.github.com"
+    }
+  }
+}
