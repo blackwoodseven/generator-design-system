@@ -71,6 +71,13 @@ module.exports = class extends Generator {
           name: this.props.name
         }
       )
+      this.fs.copyTpl(
+        this.templatePath(`_Component/_stories.js`),
+        this.destinationPath(`src/components/${this.props.name}/stories.js`),
+        {
+          name: this.props.name
+        }
+      )
     }
     if (this.props.options === 'multipleComponent') {
       this.fs.copyTpl(
@@ -118,6 +125,13 @@ module.exports = class extends Generator {
       this.fs.copyTpl(
         this.templatePath(`_MultipleComponent/_test.js`),
         this.destinationPath(`src/components/${this.props.name}/test.js`),
+        {
+          name: this.props.name
+        }
+      )
+      this.fs.copyTpl(
+        this.templatePath(`_MultipleComponent/_stories.js`),
+        this.destinationPath(`src/components/${this.props.name}/stories.js`),
         {
           name: this.props.name
         }
