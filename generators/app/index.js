@@ -30,6 +30,15 @@ module.exports = class extends Generator {
         type: 'input',
         message: `What's the name of your component? (Use PascalCase)`,
         name: 'name'
+      },
+      {
+        type: 'confirm',
+        message: `Do you want it stateless?`,
+        name: 'isStateless',
+        default: true,
+        when: answers => {
+          return answers.options === 'singleComponent'
+        }
       }
     ]
 
@@ -42,9 +51,14 @@ module.exports = class extends Generator {
   }
 
   writing() {
+    let suffix = 'Stateless'
+    if (this.props.isStateless !== undefined) {
+      suffix = this.props.isStateless ? 'Stateless' : 'Stateful'
+    }
+
     if (this.props.options === 'singleComponent') {
       this.fs.copyTpl(
-        this.templatePath(`_Component/_index.js`),
+        this.templatePath(`_Component/_index${suffix}.js`),
         this.destinationPath(`src/components/${this.props.name}/index.js`),
         {
           name: this.props.name
@@ -58,8 +72,8 @@ module.exports = class extends Generator {
         }
       )
       this.fs.copyTpl(
-        this.templatePath(`_Component/_docs.md`),
-        this.destinationPath(`src/components/${this.props.name}/docs.md`),
+        this.templatePath(`_Component/_README.md`),
+        this.destinationPath(`src/components/${this.props.name}/README.md`),
         {
           name: this.props.name
         }
@@ -88,7 +102,7 @@ module.exports = class extends Generator {
         }
       )
       this.fs.copyTpl(
-        this.templatePath(`_Component/_index.js`),
+        this.templatePath(`_Component/_index${suffix}.js`),
         this.destinationPath(`src/components/${this.props.name}/Component1/index.js`),
         {
           name: 'Component1'
@@ -102,7 +116,7 @@ module.exports = class extends Generator {
         }
       )
       this.fs.copyTpl(
-        this.templatePath(`_Component/_index.js`),
+        this.templatePath(`_Component/_index${suffix}.js`),
         this.destinationPath(`src/components/${this.props.name}/Component2/index.js`),
         {
           name: 'Component2'
@@ -116,8 +130,8 @@ module.exports = class extends Generator {
         }
       )
       this.fs.copyTpl(
-        this.templatePath(`_MultipleComponent/_docs.md`),
-        this.destinationPath(`src/components/${this.props.name}/docs.md`),
+        this.templatePath(`_MultipleComponent/_README.md`),
+        this.destinationPath(`src/components/${this.props.name}/README.md`),
         {
           name: this.props.name
         }

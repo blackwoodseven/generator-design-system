@@ -1,6 +1,6 @@
-# Button
+# <%= name %>
 
-A presentational component with two possible styles: raised and flat. Both accept the same parameters
+A small description of the component
 
 ## Props
 
