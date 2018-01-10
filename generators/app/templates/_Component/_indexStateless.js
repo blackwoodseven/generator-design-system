@@ -1,12 +1,11 @@
 import React from 'react'
-import injectSheet from 'react-jss'
 
-import styles from './styles'
+import './styles.css'
 
 const <%= name %> = ({ classes, children }) => (
-  <div className={classes.component}>
+  <div className='component'>
     {children}
   </div>
 )
 
-export default injectSheet(styles)(<%= name %>)
+export default <%= name %>

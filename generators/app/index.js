@@ -65,8 +65,8 @@ module.exports = class extends Generator {
         }
       )
       this.fs.copyTpl(
-        this.templatePath(`_Component/_styles.js`),
-        this.destinationPath(`src/components/${this.props.name}/styles.js`),
+        this.templatePath(`_Component/_styles.css`),
+        this.destinationPath(`src/components/${this.props.name}/styles.css`),
         {
           name: this.props.name
         }
@@ -109,8 +109,8 @@ module.exports = class extends Generator {
         }
       )
       this.fs.copyTpl(
-        this.templatePath(`_Component/_styles.js`),
-        this.destinationPath(`src/components/${this.props.name}/Component1/styles.js`),
+        this.templatePath(`_Component/_styles.css`),
+        this.destinationPath(`src/components/${this.props.name}/Component1/styles.css`),
         {
           name: this.props.name
         }
@@ -123,8 +123,8 @@ module.exports = class extends Generator {
         }
       )
       this.fs.copyTpl(
-        this.templatePath(`_Component/_styles.js`),
-        this.destinationPath(`src/components/${this.props.name}/Component2/styles.js`),
+        this.templatePath(`_Component/_styles.css`),
+        this.destinationPath(`src/components/${this.props.name}/Component2/styles.css`),
         {
           name: this.props.name
         }

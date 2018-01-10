@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import injectSheet from 'react-jss'
 
-import styles from './styles'
+import './styles.css'
 
 class <%= name %> extends Component {
   constructor(props) {
@@ -11,11 +10,11 @@ class <%= name %> extends Component {
   
   render() {
     return (
-      <div className={this.props.classes.component}>
-      {this.props.children}
+      <div className='component'>
+        {this.props.children}
       </div>
     )
   }
 }
 
-export default injectSheet(styles)(<%= name %>)
+export default <%= name %>
